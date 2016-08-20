@@ -1,5 +1,10 @@
 __author__ = 'grantpowell'
 
+# Directions to use, put a file in this folder called roster.txt
+# Put names in the format: first, last or first, last, postion
+# run python nametags.py form the commandline
+
+
 try:
     import reportlab
 except:
