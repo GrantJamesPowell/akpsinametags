@@ -11,8 +11,8 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
 
-with open('Roster2.txt') as file:
-    names = [name.strip().split() for name in file.readlines()]
+with open('roster.txt') as file:
+    names = [name.strip().split(',') for name in file.readlines()]
 
 width, height = letter
 c = canvas.Canvas("namecards.pdf", pagesize=letter)
@@ -35,8 +35,8 @@ while namecnt < len(names):
                 c.setFont("Helvetica-Bold", 35)
             else:
                 c.setFont("Helvetica-Bold", 40)
-            c.drawCentredString((.5 * 3.5 + .5) * inch + xoffset, 2 * inch + yoffset, names[namecnt][1])
-            c.drawCentredString((.5 * 3.5 + .5) * inch + xoffset, 1.4 * inch + yoffset, names[namecnt][0])
+            c.drawCentredString((.5 * 3.5 + .5) * inch + xoffset, 2 * inch + yoffset, names[namecnt][0])
+            c.drawCentredString((.5 * 3.5 + .5) * inch + xoffset, 1.4 * inch + yoffset, names[namecnt][1])
             if len(names[namecnt]) > 2:
                 c.setFont("Times-Italic", 16)
                 c.drawCentredString((.5 * 3.5 + .5) * inch + xoffset, 1 * inch + yoffset, ' '.join(names[namecnt][2:]))
